@@ -4,27 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Sorting Algorithms Visualizer</title>
-    <style>
-        #container {
-            width: 600px;
-            height: 500px;
-            margin: auto;
-        }
-        #array_bars {
-            border: 1px solid #999;
-            padding: 10px;
-            text-align: center;
-            margin-bottom: 10px;
-            margin-top: 50px;
-            height: 500px;
-        }
-        .array_bar {
-            display: inline-block;
-            width: 3px;
-            margin: 0 3px;
-            background: blue;
-        }
-    </style>
+    <link href="css/style.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -36,93 +16,11 @@
         <div id="controls" style="display: none;">
             <button onclick="resetArray()">Re-generate a new array</button><br><br>
             <button onclick="bubbleSort()">Bubble Sort</button>
+            <button onclick="merge()">Merge Sort</button>
         </div>
     </div>
-
-    <script>
-        var div_sizes = [];
-        var divs = [];
-        var array_size = 60
-        var c_delay = 0;
-        var animate_speed = 05;
-
-        function generateArray() {
-            let arr = [];
-            for (let i = 0; i < array_size; i++) {
-                let randNum = getRndInteger(10, 500);
-
-                div_sizes[i] = randNum;
-
-                divs[i] = document.createElement("div");
-                divs[i].classList.add("array_bar");
-                divs[i].style.height = randNum + "px";
-                document.getElementById("array_bars").appendChild(divs[i]);
-                arr.push(randNum);
-            }
-        }
-
-
-        function getRndInteger(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-
-        function resetArray() {
-            document.getElementById("array_bars").innerHTML = "";
-            generateArray();
-            document.getElementById("controls").style.display = "block";
-        }
-
-        function div_update(cont, height, color) {
-            window.setTimeout(function () {
-                cont.style = "height:" + height + "px; background-color:" + color + ";";
-            }, c_delay += animate_speed);
-        }
-
-        function disableControls(){
-            let c = document.getElementById("controls").childNodes;
-            for (let i = 0; i < c.length; i++) {
-                if(c[i].nodeName.toLowerCase() == "button"){
-                    c[i].setAttribute("disabled", "true");
-                }
-            }
-        }
-
-        function enableControls(){
-            let c = document.getElementById("controls").childNodes;
-            for (let i = 0; i < c.length; i++) {
-                if(c[i].nodeName.toLowerCase() == "button"){
-                    c[i].removeAttribute("disabled");
-                }
-            }
-        }
-
-        function bubbleSort() {
-            disableControls();
-            for (var i = 0; i < array_size - 1; i++) {
-                for (var j = 0; j < array_size - i - 1; j++) {
-                    div_update(divs[j], div_sizes[j], "yellow");
-
-                    if (div_sizes[j] > div_sizes[j + 1]) {
-                        div_update(divs[j], div_sizes[j], "red");
-                        div_update(divs[j + 1], div_sizes[j + 1], "red");
-
-                        var temp = div_sizes[j];
-                        div_sizes[j] = div_sizes[j + 1];
-                        div_sizes[j + 1] = temp;
-
-                        div_update(divs[j], div_sizes[j], "red");
-                        div_update(divs[j + 1], div_sizes[j + 1], "red");
-                    }
-                    div_update(divs[j], div_sizes[j], "blue");
-                }
-                div_update(divs[j], div_sizes[j], "green");
-            }
-            div_update(divs[0], div_sizes[0], "green");
-            //enableControls();
-        }
-
-        //generateArray();
-    </script>
+    <script src="js/main.js"></script>
+    <script src="js/algorithms.js"></script>
 </body>
 
 </html>

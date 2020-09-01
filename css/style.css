@@ -1,0 +1,21 @@
+#container {
+    width: 600px;
+    height: 500px;
+    margin: auto;
+}
+
+#array_bars {
+    border: 1px solid #999;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    height: 500px;
+}
+
+.array_bar {
+    display: inline-block;
+    width: 3px;
+    margin: 0 3px;
+    background: blue;
+}
