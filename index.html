@@ -14,10 +14,28 @@
             <button onclick="resetArray()">Generate a new array</button>
         </div>
         <div id="controls" style="display: none;">
-            <button onclick="resetArray()">Re-generate a new array</button><br><br>
-            <button onclick="bubbleSort()">Bubble Sort</button>
-            <button onclick="merge()">Merge Sort</button>
+            <div>
+                <select class="controlBtn" style="float: left;" onchange="changeAnimationSpeed(this.value)">
+                    <option value="30">Slow</option>
+                    <option value="20" selected>Select Animation Speed - Normal</option>
+                    <option value="10">Fast</option>
+                    <option value="02">Fastest</option>
+                </select>
+                <button class="controlBtn" onclick="resetArray()" style="float: right;">Re-generate a new array</button>
+            </div>
+            <br><br><br>
+            <p class="helperdesc">Choose your Sorting Algorithm to start sorting</p>
+            <button class="controlBtn" onclick="bubbleSort()">Bubble Sort</button>
+            <button class="controlBtn" onclick="merge()">Merge Sort</button>
+            <button class="controlBtn" onclick="selectionSort()">Selection Sort</button>
+            <button class="controlBtn" onclick="insertionSort()">Insertion Sort</button>
+            <button class="controlBtn" onclick="heap()">Heap Sort</button>
+            <button class="controlBtn" onclick="quick()">Quick Sort</button>
+            <br><br><br>
         </div>
+    </div>
+    <div style="position: absolute; bottom: 10px; left: 10px; font-size: 10px;">
+        Designed and Coded by <b><a href="https://github.com/hamoonea">Iftekhar Ahmad</a></b>
     </div>
     <script src="js/main.js"></script>
     <script src="js/algorithms.js"></script>

@@ -2,7 +2,7 @@ var div_sizes = [];
 var divs = [];
 var array_size = 60;
 var c_delay = 0;
-var animate_speed = 10;
+var animate_speed = 20;
 
 function generateArray() {
   let arr = [];
@@ -36,21 +36,21 @@ function div_update(cont, height, color) {
 }
 
 function disableControls() {
-  let c = document.getElementById("controls").childNodes;
+  let c = document.getElementsByClassName("controlBtn");
   for (let i = 0; i < c.length; i++) {
-    if (c[i].nodeName.toLowerCase() == "button") {
-      c[i].setAttribute("disabled", "true");
-    }
+    c[i].setAttribute("disabled", "true");
   }
 }
 
 function enableControls() {
-  let c = document.getElementById("controls").childNodes;
+  let c = document.getElementsByClassName("controlBtn");
   setTimeout(() => {
     for (let i = 0; i < c.length; i++) {
-      if (c[i].nodeName.toLowerCase() == "button") {
-        c[i].disabled = false;
-      }
+      c[i].disabled = false;
     }
   }, (c_delay += animate_speed));
+}
+
+function changeAnimationSpeed(speed) {
+  animate_speed = parseInt(speed);
 }
